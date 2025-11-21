@@ -100,7 +100,7 @@ GET /api/orders/{id} - Детали заказа
 ✍️ Добавление новой документации
 Для нового endpoint
 Добавьте JSDoc комментарии в файл route:
-/**
+```bash
  * @swagger
  * /api/your-endpoint:
  *   post:
@@ -124,10 +124,10 @@ GET /api/orders/{id} - Детали заказа
  *       400:
  *         description: Ошибка валидации
  */
-
+```
  Параметры запроса
 Path parameters:
-/**
+```bash
  * @swagger
  * parameters:
  *   - in: path
@@ -136,9 +136,9 @@ Path parameters:
  *     schema:
  *       type: string
  */
-
+```
  Query parameters:
- /**
+```bash
  * @swagger
  * parameters:
  *   - in: query
@@ -147,6 +147,7 @@ Path parameters:
  *       type: string
  *     description: Фильтр по категории
  */
+```
 
  Для новой схемы данных
 Добавьте в lib/swagger.ts:
