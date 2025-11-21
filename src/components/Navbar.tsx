@@ -2,9 +2,10 @@
 'use client';
 
 import { useSession, signOut } from 'next-auth/react';
-import { LogOut, User, Bell, Home, Settings } from 'lucide-react';
+import { LogOut, User, Bell, Home, Settings, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import ShoppingCartIcon from './ShoppingCartIcon';
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -26,7 +27,7 @@ const Navbar = () => {
           <Home className="w-4 h-4 text-gray-600" />
         </Link>
         <Bell className="w-4 h-4 text-gray-600" />
-
+        <ShoppingCartIcon />
         {session?.user ? (
           <div className="flex items-center gap-4">
             <Link
@@ -45,6 +46,12 @@ const Navbar = () => {
               <LogOut className="w-4 h-4" />
               Выйти
             </button>
+            <Link
+              href="/addresses"
+              className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-800">
+              <MapPin className="w-4 h-4" />
+              Мои адреса
+            </Link>
           </div>
         ) : (
           <Link href="/login" className="text-sm text-gray-600 hover:text-gray-800">

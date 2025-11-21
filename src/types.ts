@@ -63,3 +63,50 @@ export type AuthStoreType = {
   logout: () => Promise<void>;
   checkAuth: () => Promise<void>;
 };
+
+export type CartStoreType = {
+  cart: CartItemType[];
+  addToCart: (item: Omit<CartItemType, 'id'>) => void;
+  removeFromCart: (itemId: string) => void;
+  updateQuantity: (itemId: string, quantity: number) => void;
+  clearCart: () => void;
+  getTotalPrice: () => number;
+  getTotalItems: () => number;
+};
+
+// Тип для элемента корзины в store
+export type CartStoreItem = {
+  id: string;
+  product: ProductType;
+  quantity: number;
+  selectedSize: string;
+  selectedColor: string;
+};
+
+export type AddressType = {
+  id?: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  country: string;
+  city: string;
+  street: string;
+  apartment?: string;
+  postalCode: string;
+  isDefault?: boolean;
+};
+
+export const addressSchema = z.object({
+  firstName: z.string().min(2, "Имя должно содержать минимум 2 символа"),
+  lastName: z.string().min(2, "Фамилия должна содержать минимум 2 символа"),
+  email: z.string().email("Введите корректный email"),
+  phone: z.string().min(10, "Номер телефона должен содержать минимум 10 цифр"),
+  country: z.string().min(1, "Выберите страну"),
+  city: z.string().min(2, "Город должен содержать минимум 2 символа"),
+  street: z.string().min(5, "Улица должна содержать минимум 5 символов"),
+  apartment: z.string().optional(),
+  postalCode: z.string().min(5, "Почтовый индекс должен содержать минимум 5 символов"),
+});
+
+export type AddressInputs = z.infer<typeof addressSchema>;
