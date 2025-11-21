@@ -24,6 +24,7 @@ http://localhost:3000/api-docs
 ```bash
 npm install swagger-jsdoc swagger-ui-express
 npm install -D @types/swagger-jsdoc @types/swagger-ui-express
+```
 
 📚 Использование документации
 Просмотр API endpoints
@@ -149,6 +150,7 @@ Path parameters:
 
  Для новой схемы данных
 Добавьте в lib/swagger.ts:
+```bash
 components: {
   schemas: {
     YourSchema: {
@@ -169,3 +171,5 @@ components: {
     }
   }
 }
+
+```
