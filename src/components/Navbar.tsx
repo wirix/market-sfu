@@ -2,7 +2,7 @@
 'use client';
 
 import { useSession, signOut } from 'next-auth/react';
-import { LogOut, User, Bell, Home, Settings, MapPin } from 'lucide-react';
+import { LogOut, User, Bell, Home, Settings, MapPin, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import ShoppingCartIcon from './ShoppingCartIcon';
@@ -51,6 +51,12 @@ const Navbar = () => {
               className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-800">
               <MapPin className="w-4 h-4" />
               Мои адреса
+            </Link>
+            <Link
+              href="/api-docs"
+              className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-800">
+              <FileText className="w-4 h-4" />
+              API Docs
             </Link>
           </div>
         ) : (
